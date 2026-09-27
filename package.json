@@ -1,7 +1,26 @@
 {
   "name": "codex-multiple-accounts",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Run Codex CLI with isolated local account profiles.",
+  "keywords": [
+    "account-health",
+    "account-management",
+    "account-rotation",
+    "chatgpt",
+    "cli",
+    "codex",
+    "codex-cli",
+    "codex-multi-account",
+    "codex-multiple-accounts",
+    "npm",
+    "npm-package",
+    "npmjs",
+    "openai",
+    "openai-codex",
+    "sign-in",
+    "terminal",
+    "terminal-ui"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
