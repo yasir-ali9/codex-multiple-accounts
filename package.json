@@ -1,0 +1,21 @@
+{
+  "name": "codex-x",
+  "version": "0.1.0",
+  "description": "Run Codex CLI with isolated local account profiles.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "codex-x": "./bin/codex-x.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "files": [
+    "bin",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test"
+  }
+}
