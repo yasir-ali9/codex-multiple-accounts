@@ -1,19 +1,19 @@
 {
-  "name": "codex-x",
-  "version": "0.1.0",
+  "name": "codex-multiple-accounts",
+  "version": "0.1.1",
   "description": "Run Codex CLI with isolated local account profiles.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yasir-ali9/codex-x.git"
+    "url": "https://github.com/yasir-ali9/codex-multiple-accounts.git"
   },
-  "homepage": "https://github.com/yasir-ali9/codex-x#readme",
+  "homepage": "https://github.com/yasir-ali9/codex-multiple-accounts#readme",
   "bugs": {
-    "url": "https://github.com/yasir-ali9/codex-x/issues"
+    "url": "https://github.com/yasir-ali9/codex-multiple-accounts/issues"
   },
   "type": "module",
   "bin": {
-    "codex-x": "./bin/codex-x.js"
+    "cma": "./bin/cma.js"
   },
   "engines": {
     "node": ">=18"

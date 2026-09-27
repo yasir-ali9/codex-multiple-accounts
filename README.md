@@ -1,65 +1,35 @@
-# codex-x
+# Codex Multiple Accounts
 
-Use multiple Codex CLI accounts on one computer without replacing the active login. Each workspace has its own `CODEX_HOME`, so Codex stores its credentials, configuration, and local history separately.
-
-## Install
+Manage multiple isolated Codex CLI workspaces from a terminal dashboard. Codex CLI must already be installed.
 
 ```sh
-npm install -g codex-x
+# Install globally
+npm install -g codex-multiple-accounts
+
+# Open the dashboard (same as `cma dashboard`)
+cma
+
+# Or open the dashboard explicitly
+cma dashboard
+
+# Optional quick commands
+cma login <workspace-name>                   # Sign in to a workspace
+cma login <workspace-name> --device-auth     # Sign in using device authentication
+cma run <workspace-name>                     # Start Codex in a workspace
+cma status <workspace-name>                  # Check whether a workspace is signed in
+cma migrate <workspace-name>                 # Move .codex to .codex-<workspace-name>
 ```
 
-Codex CLI must already be installed and available as `codex` in your terminal.
+## Workspaces
 
-Codex X is an independent community project and is not affiliated with or endorsed by OpenAI. It uses the installed Codex CLI and its documented [App Server](https://learn.chatgpt.com/docs/app-server) account interface.
+Choose any workspace name, such as `01` or `workspace-name`. Each workspace has its own Codex home, which keeps its sign-in, settings, and local history separate. By default, workspace data is stored in `~/.codex-<workspace>`; set `CODEX_ACCOUNTS_HOME` to store workspaces somewhere else.
 
-## Interactive menu
+The dashboard lists local workspaces, shows whether they are connected, and displays the email for connected ChatGPT accounts. The email is read locally from Codex and is not saved separately by this tool. To delete a workspace, choose it from the dashboard and confirm by typing its folder name.
 
-Run `codex-x` with no arguments to open the terminal interface. It marks the current workspace with a checkmark and shows whether each local Codex folder is connected or still needs sign-in. For connected ChatGPT accounts, it also displays the email returned by Codex locally; it is not saved by Codex X. Choose `1` to switch accounts, `2` to sign in to a new or existing account, `3` to migrate an existing `.codex` profile, or `4` to delete a workspace after confirming its folder name.
+## Existing Codex profile
 
-```sh
-codex-x
-```
+Your existing `~/.codex` profile is left as-is until you choose the dashboard’s migration option or run `cma migrate <workspace-name>`. Migration renames `.codex` to `.codex-<workspace-name>`, preserving its sign-in, settings, and local history. Migration stops if the destination workspace already exists.
 
-## Use
+## Requirements
 
-Sign in once for each account. Choose any workspace name, such as `01`, `personal`, or `work`:
-
-```sh
-codex-x login personal
-codex-x login work
-```
-
-Start Codex under an account:
-
-```sh
-codex-x run personal
-codex-x run work "review this project"
-```
-
-Check the selected account's login:
-
-```sh
-codex-x status work
-```
-
-For remote machines or when browser sign-in is inconvenient:
-
-```sh
-codex-x login work --device-auth
-```
-
-Account data is stored as `~/.codex-<workspace>` by default; for example, `~/.codex-personal`. Workspace names can use any valid folder name, including `01`, `personal`, or `work`. Set `CODEX_ACCOUNTS_HOME` to place those folders somewhere else.
-
-## Existing Codex users
-
-Existing Codex CLI users already have `~/.codex`. It is left unchanged. Sign in to a new workspace with `login`, which creates a new workspace folder.
-
-If the current `~/.codex` login is the account you want to keep, migrate it once without signing in again:
-
-```sh
-codex-x migrate personal
-```
-
-`migrate` renames `~/.codex` to `~/.codex-personal`, preserving the stored Codex sign-in, settings, and local history. It refuses to run when the destination already exists.
-
-This package does not handle passwords or tokens itself. It only sets `CODEX_HOME` before launching the official Codex CLI.
+Install Codex CLI first and ensure the `codex` command is available in your terminal. This independent community project is not affiliated with or endorsed by OpenAI. It uses the installed Codex CLI and its documented [App Server](https://learn.chatgpt.com/docs/app-server) account interface.

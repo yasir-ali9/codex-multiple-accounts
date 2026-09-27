@@ -26,19 +26,19 @@ const muted = (text) => process.stdout.isTTY && !process.env.NO_COLOR
 
 function usage(exitCode = 0) {
   console.log(`Usage:
-  codex-x login <workspace> [codex login options]
-  codex-x run <workspace> [codex options and prompt]
-  codex-x status <workspace>
-  codex-x migrate <workspace>
-  codex-x tui
+  cma login <workspace> [codex login options]
+  cma run <workspace> [codex options and prompt]
+  cma status <workspace>
+  cma migrate <workspace>
+  cma dashboard
 
 Examples:
-  codex-x login personal
-  codex-x login work --device-auth
-  codex-x run personal
-  codex-x run work "review this project"
-  codex-x migrate personal
-  codex-x
+  cma login personal
+  cma login work --device-auth
+  cma run personal
+  cma run work "review this project"
+  cma migrate personal
+  cma
 
 Each account gets isolated Codex credentials and state under:
   ${root}/.codex-<workspace>
@@ -67,9 +67,9 @@ function runCodex(codexHome, codexArgs, stdio, input) {
       "-NoProfile",
       "-NonInteractive",
       "-Command",
-      "$codexXArgs = ConvertFrom-Json $env:CODEX_X_ARGS; if ($null -eq $codexXArgs) { & codex } else { & codex @codexXArgs }; exit $LASTEXITCODE"
+      "$cmaArgs = ConvertFrom-Json $env:CMA_ARGS; if ($null -eq $cmaArgs) { & codex } else { & codex @cmaArgs }; exit $LASTEXITCODE"
     ], {
-      env: { ...env, CODEX_X_ARGS: JSON.stringify(codexArgs) },
+      env: { ...env, CMA_ARGS: JSON.stringify(codexArgs) },
       stdio,
       input
     })
@@ -98,9 +98,9 @@ function launchLogin(codexHome, codexArgs) {
       "-NoProfile",
       "-NonInteractive",
       "-Command",
-      "$codexXArgs = ConvertFrom-Json $env:CODEX_X_ARGS; & codex @codexXArgs; exit $LASTEXITCODE"
+      "$cmaArgs = ConvertFrom-Json $env:CMA_ARGS; & codex @cmaArgs; exit $LASTEXITCODE"
     ], {
-      env: { ...env, CODEX_X_ARGS: JSON.stringify(codexArgs) },
+      env: { ...env, CMA_ARGS: JSON.stringify(codexArgs) },
       stdio: ["inherit", "pipe", "inherit"]
     })
     : spawn("codex", codexArgs, { env, stdio: ["inherit", "pipe", "inherit"] });
@@ -212,14 +212,14 @@ function accountInfo(profile) {
     send({
       method: "initialize",
       id: 0,
-      params: { clientInfo: { name: "codex_x", title: "Codex X", version: "0.1.0" } }
+      params: { clientInfo: { name: "codex_multiple_accounts", title: "Codex Multiple Accounts", version: "0.1.1" } }
     });
   });
 }
 
 async function startTui() {
   if (!process.stdin.isTTY) {
-    console.error("The profile menu requires an interactive terminal. Use `codex-x --help` for command options.");
+    console.error("The profile menu requires an interactive terminal. Use `cma --help` for command options.");
     process.exitCode = 1;
     return;
   }
@@ -357,7 +357,7 @@ async function startTui() {
 
 if (["--help", "-h", "help"].includes(command)) {
   usage(0);
-} else if (!command || command === "tui") {
+} else if (!command || command === "tui" || command === "dashboard") {
   await startTui();
 } else {
   if (!account) {
