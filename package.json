@@ -13,7 +13,7 @@
   },
   "type": "module",
   "bin": {
-    "cma": "./bin/cma.js"
+    "cma": "bin/cma.js"
   },
   "engines": {
     "node": ">=18"
