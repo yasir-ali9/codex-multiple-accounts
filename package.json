@@ -1,6 +1,6 @@
 {
   "name": "codex-multiple-accounts",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Run Codex CLI with isolated local account profiles.",
   "license": "MIT",
   "repository": {
@@ -20,6 +20,7 @@
   },
   "files": [
     "bin",
+    "public",
     "README.md",
     "LICENSE"
   ],
