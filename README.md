@@ -1,16 +1,13 @@
-# Codex Multiple Accounts
+# Codex multiple accounts
 
 Manage multiple isolated Codex CLI workspaces from a terminal dashboard. Codex CLI must already be installed.
 
 ```sh
-# Install globally
+# Global installation
 npm install -g codex-multiple-accounts
 
 # Open the dashboard (same as `cma dashboard`)
 cma
-
-# Or open the dashboard explicitly
-cma dashboard
 
 # Optional quick commands
 cma login <workspace-name>                   # Sign in to a workspace
