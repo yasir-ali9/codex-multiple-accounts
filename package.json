@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "description": "Run Codex CLI with isolated local account profiles.",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yasir-ali9/codex-x.git"
+  },
+  "homepage": "https://github.com/yasir-ali9/codex-x#readme",
+  "bugs": {
+    "url": "https://github.com/yasir-ali9/codex-x/issues"
+  },
   "type": "module",
   "bin": {
     "codex-x": "./bin/codex-x.js"

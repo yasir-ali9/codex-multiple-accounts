@@ -10,6 +10,8 @@ npm install -g codex-x
 
 Codex CLI must already be installed and available as `codex` in your terminal.
 
+Codex X is an independent community project and is not affiliated with or endorsed by OpenAI. It uses the installed Codex CLI and its documented [App Server](https://learn.chatgpt.com/docs/app-server) account interface.
+
 ## Interactive menu
 
 Run `codex-x` with no arguments to open the terminal interface. It marks the current workspace with a checkmark and shows whether each local Codex folder is connected or still needs sign-in. For connected ChatGPT accounts, it also displays the email returned by Codex locally; it is not saved by Codex X. Choose `1` to switch accounts, `2` to sign in to a new or existing account, `3` to migrate an existing `.codex` profile, or `4` to delete a workspace after confirming its folder name.
