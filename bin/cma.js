@@ -266,7 +266,7 @@ async function startTui() {
 
     console.log(`\n${accent("Options")}`);
     console.log(`  ${accent("1.")} Switch account`);
-    console.log(`  ${accent("2.")} Sign in to a new or existing account`);
+    console.log(`  ${accent("2.")} Sign in to a new or existing workspace`);
     console.log(`  ${accent("3.")} Migrate existing .codex to a workspace`);
     console.log(`  ${accent("4.")} Delete workspace`);
     console.log(`  ${accent("5.")} Back to terminal\n`);

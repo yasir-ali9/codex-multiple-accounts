@@ -2,6 +2,10 @@
 
 Manage multiple isolated Codex CLI workspaces from a terminal dashboard. Codex CLI must already be installed.
 
+![Codex multiple accounts dashboard](public/image.png)
+
+## Use
+
 ```sh
 # Global installation
 npm install -g codex-multiple-accounts
@@ -23,7 +27,7 @@ Choose any workspace name, such as `01`, `personal` or `work`. Each workspace ha
 
 The dashboard lists local workspaces, shows whether they are connected, and displays the email for connected ChatGPT accounts. The email is read locally from Codex and is not saved separately by this tool. To delete a workspace, choose it from the dashboard and confirm by typing its folder name.
 
-## Existing Codex profile
+## Migrate
 
 Your existing `~/.codex` profile is left as-is until you choose the dashboard’s migration option or run `cma migrate <workspace-name>`. Migration renames `.codex` to `.codex-<workspace-name>`, preserving its sign-in, settings, and local history. Migration stops if the destination workspace already exists.
 
