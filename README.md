@@ -9,7 +9,7 @@ npm install -g codex-multiple-accounts
 # Open the dashboard (same as `cma dashboard`)
 cma
 
-# Optional quick commands
+# Optional quick commands - if not use dashboard
 cma login <workspace-name>                   # Sign in to a workspace
 cma login <workspace-name> --device-auth     # Sign in using device authentication
 cma run <workspace-name>                     # Start Codex in a workspace
@@ -19,7 +19,7 @@ cma migrate <workspace-name>                 # Move .codex to .codex-<workspace-
 
 ## Workspaces
 
-Choose any workspace name, such as `01` or `workspace-name`. Each workspace has its own Codex home, which keeps its sign-in, settings, and local history separate. By default, workspace data is stored in `~/.codex-<workspace>`; set `CODEX_ACCOUNTS_HOME` to store workspaces somewhere else.
+Choose any workspace name, such as `01`, `personal` or `work`. Each workspace has its own Codex home, which keeps its sign-in, settings, and local history separate. By default, workspace data is stored in `~/.codex-<workspace>`; set `CODEX_ACCOUNTS_HOME` to store workspaces somewhere else.
 
 The dashboard lists local workspaces, shows whether they are connected, and displays the email for connected ChatGPT accounts. The email is read locally from Codex and is not saved separately by this tool. To delete a workspace, choose it from the dashboard and confirm by typing its folder name.
 
