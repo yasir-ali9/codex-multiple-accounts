@@ -34,3 +34,20 @@ Your existing `~/.codex` profile is left as-is until you choose the dashboard’
 ## Requirements
 
 Install Codex CLI first and ensure the `codex` command is available in your terminal. This independent community project is not affiliated with or endorsed by OpenAI. It uses the installed Codex CLI and its documented [App Server](https://learn.chatgpt.com/docs/app-server) account interface.
+
+## Troubleshooting sign-in
+
+You may occasionally see this error while signing in:
+
+```text
+Error logging in: An attempt was made to access a socket in a way forbidden by its access permissions. (os error 10013)
+```
+
+This is a Windows socket permissions error from Codex authentication during sign-in, not an error from this tool. To fix it, search for **Command Prompt**, choose **Run as administrator**, then run:
+
+```bat
+net stop winnat
+net start winnat
+```
+
+After that, try signing in again.

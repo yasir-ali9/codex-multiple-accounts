@@ -321,7 +321,7 @@ async function startTui() {
       if (!workspaces.length) throw new Error("No workspaces found to delete.");
       console.log(`\n${accent("Delete workspace")}`);
       workspaces.forEach((profile, index) => {
-        console.log(`  ${accent(`${index + 1}.`)} ${workspaceLabel(profile)}`);
+        console.log(`  ${accent(`${index + 1}.`)} ${profile.folder}`);
       });
       console.log("");
       const selectedChoice = (await ask(`${accent(`Choose (1-${workspaces.length}):`)} `)).trim();
